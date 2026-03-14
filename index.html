@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>π Day — March 14 | 3.14</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>π</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Matrix-style Pi digit rain canvas (background) -->
+    <canvas id="piMatrix"></canvas>
+
+    <!-- Main content overlay -->
+    <div class="content">
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="pi-symbol">π</div>
+            <h1>Pi Day</h1>
+            <p class="date-badge">March 14 &mdash; 3 / 14 &mdash; 3.14</p>
+        </header>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section" id="countdownSection">
+            <h2 id="countdownTitle">Countdown to Pi Day</h2>
+            <div class="countdown" id="countdown">
+                <div class="time-block">
+                    <span class="time-value" id="days">000</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-block">
+                    <span class="time-value" id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-block">
+                    <span class="time-value" id="minutes">00</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-block">
+                    <span class="time-value" id="seconds">00</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+            <div class="celebration hidden" id="celebration">
+                <div class="celebration-text">🎉 It's Pi Day! 🎉</div>
+                <p class="celebration-sub">Happy 3.14159265358979323846…</p>
+            </div>
+        </section>
+
+        <!-- Pi Digits Marquee -->
+        <div class="pi-marquee">
+            <div class="pi-marquee-inner" id="piMarquee"></div>
+        </div>
+
+        <!-- Pi Facts Section -->
+        <section class="facts-section">
+            <h2>π Facts</h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="fact-icon">∞</div>
+                    <h3>Infinite & Irrational</h3>
+                    <p>Pi is an irrational number — its decimal representation never ends and never falls into a permanent repeating pattern. It has been computed to over 100 trillion digits.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🏛️</div>
+                    <h3>Ancient Origins</h3>
+                    <p>The ancient Babylonians approximated π as 3.125, while the Egyptians used 3.1605. Archimedes of Syracuse (287–212 BC) was the first to rigorously approximate π between 3<sup>10</sup>⁄<sub>71</sub> and 3<sup>1</sup>⁄<sub>7</sub>.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">📐</div>
+                    <h3>Circle Constant</h3>
+                    <p>Pi (π) is the ratio of a circle's circumference to its diameter. No matter the size of the circle, this ratio is always the same: 3.14159…</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🔤</div>
+                    <h3>The Symbol</h3>
+                    <p>The Greek letter π was first used by Welsh mathematician William Jones in 1706. It was later popularised by the great Leonhard Euler in 1737.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🧠</div>
+                    <h3>Memory Champion</h3>
+                    <p>The world record for memorising digits of π is held by Rajveer Meena (India), who recited 70,000 decimal places in 2015 — taking nearly 10 hours!</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🎲</div>
+                    <h3>Hidden Everywhere</h3>
+                    <p>Pi appears in many formulas across physics, engineering, and probability — from Heisenberg's uncertainty principle to the normal distribution (bell curve) and Einstein's field equations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legends Section -->
+        <section class="legends-section">
+            <h2>March 14 — A Day of Legends</h2>
+            <p class="legends-intro">Pi Day doesn't just celebrate mathematics — it shares its date with two of the greatest scientific minds in history.</p>
+            <div class="legends-grid">
+                <div class="legend-card einstein">
+                    <div class="legend-emoji">🌌</div>
+                    <h3>Albert Einstein</h3>
+                    <p class="legend-date">★ Born March 14, 1879 — Ulm, Germany</p>
+                    <p>The father of the theory of relativity, Einstein revolutionised our understanding of space, time, and the universe. His equation <span class="formula">E = mc²</span> became the most famous formula in all of physics. He was awarded the Nobel Prize in Physics in 1921.</p>
+                    <blockquote>"Pure mathematics is, in its way, the poetry of logical ideas."</blockquote>
+                </div>
+                <div class="legend-card hawking">
+                    <div class="legend-emoji">🕳️</div>
+                    <h3>Stephen Hawking</h3>
+                    <p class="legend-date">✝ Died March 14, 2018 — Cambridge, England</p>
+                    <p>A visionary theoretical physicist and cosmologist, Hawking's work on black holes and the origins of the universe inspired millions. Despite being diagnosed with ALS at 21, he lived to 76 and authored the best-selling <em>A Brief History of Time</em>.</p>
+                    <blockquote>"However difficult life may seem, there is always something you can do and succeed at."</blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- First 1000 digits of Pi -->
+        <section class="digits-section">
+            <h2>The First 1,000 Digits of π</h2>
+            <div class="digits-display" id="piDigits"></div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>π = 3.14159265358979323846264338327950288…</p>
+            <p class="footer-sub">Made with 🥧 for Pi Day</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

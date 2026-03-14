@@ -1,0 +1,408 @@
+/* ─── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0a0a0f;
+    --green: #00ff41;
+    --green-dim: #00cc33;
+    --gold: #f5c842;
+    --blue: #42a5f5;
+    --white: #e0e0e0;
+    --card-bg: rgba(15, 15, 25, 0.85);
+    --card-border: rgba(0, 255, 65, 0.15);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Courier New', 'Fira Code', 'Consolas', monospace;
+    background: var(--bg);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ─── Matrix Canvas ────────────────────────────────────── */
+#piMatrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.25;
+}
+
+/* ─── Content Overlay ──────────────────────────────────── */
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ─── Hero ─────────────────────────────────────────────── */
+.hero {
+    text-align: center;
+    padding: 6rem 1rem 3rem;
+}
+
+.pi-symbol {
+    font-size: 8rem;
+    color: var(--green);
+    text-shadow: 0 0 40px rgba(0, 255, 65, 0.5), 0 0 80px rgba(0, 255, 65, 0.2);
+    animation: pulse 3s ease-in-out infinite;
+    line-height: 1;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.08); opacity: 0.85; }
+}
+
+.hero h1 {
+    font-size: 3rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 0.5rem 0;
+}
+
+.date-badge {
+    display: inline-block;
+    background: rgba(0, 255, 65, 0.1);
+    border: 1px solid var(--card-border);
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+    font-size: 1.1rem;
+    color: var(--green-dim);
+    margin-top: 1rem;
+}
+
+/* ─── Countdown ────────────────────────────────────────── */
+.countdown-section {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.countdown-section h2 {
+    font-size: 1.5rem;
+    color: var(--green);
+    margin-bottom: 2rem;
+    letter-spacing: 0.1em;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.time-block {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.5rem 1.2rem;
+    min-width: 100px;
+    text-align: center;
+}
+
+.time-value {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--green);
+    text-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+.time-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #888;
+    margin-top: 0.3rem;
+}
+
+.time-separator {
+    font-size: 2.5rem;
+    color: var(--green-dim);
+    padding: 0 0.2rem;
+}
+
+.celebration {
+    padding: 2rem;
+}
+
+.celebration-text {
+    font-size: 2.5rem;
+    color: var(--gold);
+    text-shadow: 0 0 30px rgba(245, 200, 66, 0.5);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.celebration-sub {
+    color: var(--green);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ─── Pi Marquee ───────────────────────────────────────── */
+.pi-marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    background: rgba(0, 255, 65, 0.05);
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    padding: 0.8rem 0;
+    margin: 2rem 0;
+}
+
+.pi-marquee-inner {
+    display: inline-block;
+    animation: marquee 60s linear infinite;
+    font-size: 1rem;
+    color: var(--green-dim);
+    letter-spacing: 0.15em;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ─── Facts ────────────────────────────────────────────── */
+.facts-section {
+    padding: 4rem 0;
+}
+
+.facts-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--green);
+    margin-bottom: 2.5rem;
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.fact-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.fact-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--green-dim);
+}
+
+.fact-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.fact-card h3 {
+    color: var(--green);
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+}
+
+.fact-card p {
+    font-size: 0.9rem;
+    color: #bbb;
+    line-height: 1.7;
+}
+
+/* ─── Legends ──────────────────────────────────────────── */
+.legends-section {
+    padding: 4rem 0;
+}
+
+.legends-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.legends-intro {
+    text-align: center;
+    color: #999;
+    max-width: 650px;
+    margin: 0 auto 2.5rem;
+    font-size: 0.95rem;
+}
+
+.legends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.legend-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 2.5rem 2rem;
+    border: 1px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.legend-card:hover {
+    transform: translateY(-4px);
+}
+
+.legend-card.einstein {
+    border-color: rgba(245, 200, 66, 0.2);
+}
+
+.legend-card.einstein:hover {
+    border-color: var(--gold);
+}
+
+.legend-card.hawking {
+    border-color: rgba(66, 165, 245, 0.2);
+}
+
+.legend-card.hawking:hover {
+    border-color: var(--blue);
+}
+
+.legend-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.legend-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.einstein h3 { color: var(--gold); }
+.hawking h3 { color: var(--blue); }
+
+.legend-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.legend-card p {
+    font-size: 0.9rem;
+    color: #bbb;
+    line-height: 1.7;
+}
+
+.legend-card blockquote {
+    margin-top: 1.2rem;
+    padding-left: 1rem;
+    border-left: 3px solid;
+    font-style: italic;
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.einstein blockquote { border-color: var(--gold); }
+.hawking blockquote { border-color: var(--blue); }
+
+.formula {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* ─── Digits Display ───────────────────────────────────── */
+.digits-section {
+    padding: 4rem 0;
+}
+
+.digits-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--green);
+    margin-bottom: 2rem;
+}
+
+.digits-display {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 2rem;
+    font-size: 1.1rem;
+    line-height: 2;
+    letter-spacing: 0.15em;
+    word-break: break-all;
+    text-align: center;
+    color: var(--green-dim);
+}
+
+.digits-display .digit-dot {
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.digits-display .digit-3 {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.digits-display .digit-highlight {
+    color: var(--green);
+}
+
+/* ─── Footer ───────────────────────────────────────────── */
+footer {
+    text-align: center;
+    padding: 3rem 0 4rem;
+    border-top: 1px solid var(--card-border);
+    margin-top: 2rem;
+}
+
+footer p {
+    color: var(--green-dim);
+    font-size: 0.9rem;
+}
+
+.footer-sub {
+    margin-top: 0.5rem;
+    color: #666 !important;
+    font-size: 0.8rem !important;
+}
+
+/* ─── Responsive ───────────────────────────────────────── */
+@media (max-width: 768px) {
+    .pi-symbol { font-size: 5rem; }
+    .hero h1 { font-size: 2rem; letter-spacing: 0.2em; }
+    .time-block { min-width: 70px; padding: 1rem; }
+    .time-value { font-size: 2rem; }
+    .time-separator { font-size: 1.8rem; }
+    .celebration-text { font-size: 1.8rem; }
+    .facts-grid { grid-template-columns: 1fr; }
+    .legends-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .pi-symbol { font-size: 4rem; }
+    .hero h1 { font-size: 1.5rem; }
+    .time-block { min-width: 60px; padding: 0.8rem; }
+    .time-value { font-size: 1.5rem; }
+}
