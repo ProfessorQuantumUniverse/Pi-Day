@@ -442,7 +442,7 @@ const FULL_PI = "3." + PI_DIGITS;
 
 // ─── Share Buttons ──────────────────────────────────────
 (function initShare() {
-    var pageUrl = "https://professorquantumuniverse.github.io/Pi-Day/";
+    var pageUrl = window.location.href || "https://professorquantumuniverse.github.io/Pi-Day/";
     var text = "🥧 Happy Pi Day! π = 3.14159… Check out this awesome Pi Day website! 🎉";
 
     var twitterBtn = document.getElementById("shareTwitter");
@@ -522,7 +522,7 @@ const FULL_PI = "3." + PI_DIGITS;
     var saved = localStorage.getItem("piday-theme");
     if (saved) {
         document.documentElement.setAttribute("data-theme", saved);
-        btn.textContent = saved === "light" ? "☀️" : "��";
+        btn.textContent = saved === "light" ? "☀️" : "🌙";
         if (metaTheme) metaTheme.content = saved === "light" ? "#f0f0f5" : "#0a0a0f";
     }
 

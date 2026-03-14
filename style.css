@@ -1280,6 +1280,5 @@ footer p {
     .time-value { font-size: 1.5rem; }
     .hero-stats { gap: 0.8rem; }
     .hero-stat { font-size: 0.75rem; padding: 0.2rem 0.6rem; }
-    .calendar-buttons { flex-direction: column; align-items: center; }
-    .share-buttons { flex-direction: column; align-items: center; }
+    .calendar-buttons, .share-buttons { flex-direction: column; align-items: center; }
 }
