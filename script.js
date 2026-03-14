@@ -73,7 +73,17 @@ const PI_DIGITS =
         }
     }
 
-    setInterval(draw, 45);
+    let lastTime = 0;
+    const interval = 45;
+
+    function animate(timestamp) {
+        if (timestamp - lastTime >= interval) {
+            draw();
+            lastTime = timestamp;
+        }
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
 })();
 
 // ─── Countdown to Pi Day ────────────────────────────────
